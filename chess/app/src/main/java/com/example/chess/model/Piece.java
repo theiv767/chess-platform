@@ -4,6 +4,7 @@ public abstract class Piece {
     private EnumCor color;
     private int row, col;
     private String image;
+    private ChessBoard chessBoard;
     private boolean eliminated = false;
     private boolean select = false;
 
