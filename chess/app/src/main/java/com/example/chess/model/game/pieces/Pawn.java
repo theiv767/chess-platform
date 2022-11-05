@@ -1,11 +1,11 @@
-package com.example.chess.model.pieces;
+package com.example.chess.model.game.pieces;
 
-import com.example.chess.model.EnumCor;
-import com.example.chess.model.Piece;
+import com.example.chess.model.game.EnumColor;
+import com.example.chess.model.game.Piece;
 
-public class Rook extends Piece {
+public class Pawn extends Piece {
 
-    public Rook(EnumCor color, int row, int col, String image){
+    public Pawn(EnumColor color, int row, int col, String image) {
         super(color, row, col, image);
     }
 
