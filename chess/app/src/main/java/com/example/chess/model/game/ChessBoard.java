@@ -1,5 +1,6 @@
 package com.example.chess.model.game;
 
+//tabuleiro de xadrez
 public class ChessBoard {
     private Piece[][] pieces = new Piece[8][8];
     private Piece selectedPiece = null;
