@@ -7,7 +7,7 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 
 public class ChessBoardActivity extends AppCompatActivity {
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,13 +40,19 @@ public class ChessBoardActivity extends AppCompatActivity {
                         squared.setImageResource(R.drawable.whitesquared);
                     }
                 }
+//                float pixels = this.getResources().getDisplayMetrics().density;
+//                GridLayout.Spec width = GridLayout.spec((int)(51*pixels), GridLayout.FILL);
+//                GridLayout.Spec height = GridLayout.spec((int)(51*pixels), GridLayout.FILL);
+//                GridLayout.LayoutParams sizes = new GridLayout.LayoutParams(width, height);
+//                squared.setLayoutParams(sizes);
+
                 chessBoard.addView(squared, coordinates); // adicionando uma nova casa no tabuleiro
 
             }
         } // fim do processo de adicionar as casas do tabuleiro
 
 
-        
+
 
 
 
