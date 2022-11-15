@@ -67,14 +67,14 @@
         app:layout_constraintVertical_bias="0.078" />
 
 
-
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
         android:layout_marginTop="24dp"
         android:text="Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassWord" />
 
@@ -93,34 +93,32 @@
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
+        android:layout_marginStart="20dp"
         android:text="Register"
         app:layout_constraintBaseline_toBaselineOf="@+id/btnLogin"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/btnLogin" />
 
     <ImageButton
         android:id="@+id/btnLogarComGoogle"
-        android:layout_width="41dp"
+        android:layout_width="42dp"
         android:layout_height="42dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnLogarComFacebook"
-        app:layout_constraintHorizontal_bias="0.871"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        app:layout_constraintVertical_bias="0.092"
         app:srcCompat="@drawable/google" />
 
     <ImageButton
         android:id="@+id/btnLogarComFacebook"
-        android:layout_width="45dp"
-        android:layout_height="43dp"
-        android:layout_marginEnd="156dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnLogarComGoogle"
         app:layout_constraintTop_toBottomOf="@+id/btnRegister"
-        app:layout_constraintVertical_bias="0.087"
         app:srcCompat="@drawable/facebook" />
 
 
