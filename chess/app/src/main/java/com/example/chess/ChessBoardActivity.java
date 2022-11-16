@@ -8,6 +8,11 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 
 public class ChessBoardActivity extends AppCompatActivity {
+
+    public int dpToPx(int dp) {
+        float density = this.getResources().getDisplayMetrics().density;
+        return Math.round((float) dp * density);
+    }
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +31,7 @@ public class ChessBoardActivity extends AppCompatActivity {
                 GridLayout.LayoutParams coordinates = new GridLayout.LayoutParams(row, col);
 
                 ImageView squared = new ImageView(this);//imagem da casa do tabuleiro
-
+                squared.setLayoutParams(coordinates);
                 // controlando se a cor da casa será clara ou escura
                 if(i%2 == 0){
                     if(j%2 ==0){
@@ -41,14 +46,11 @@ public class ChessBoardActivity extends AppCompatActivity {
                         squared.setImageResource(R.drawable.whitesquared);
                     }
                 }
-//                float pixels = this.getResources().getDisplayMetrics().density;
-//                GridLayout.Spec width = GridLayout.spec((int)(51*pixels), GridLayout.FILL);
-//                GridLayout.Spec height = GridLayout.spec((int)(51*pixels), GridLayout.FILL);
-//                GridLayout.LayoutParams sizes = new GridLayout.LayoutParams(width, height);
-//                squared.setLayoutParams(sizes);
+                squared.getLayoutParams().height = dpToPx(50);
+                squared.getLayoutParams().width = dpToPx(50);
 
-                Log.i("testeee", "chegou aqui");
                 chessBoard.addView(squared, coordinates); // adicionando uma nova casa no tabuleiro
+
 
             }
         } // fim do processo de adicionar as casas do tabuleiro

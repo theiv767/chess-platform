@@ -9,13 +9,13 @@
 
     <GridLayout
         android:id="@+id/chessBoard"
-        android:layout_width="match_parent"
-        android:layout_height="408dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_marginBottom="212dp"
         android:background="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
