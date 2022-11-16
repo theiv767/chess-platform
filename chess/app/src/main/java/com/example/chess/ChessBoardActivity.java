@@ -3,6 +3,7 @@ package com.example.chess;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 
@@ -46,6 +47,7 @@ public class ChessBoardActivity extends AppCompatActivity {
 //                GridLayout.LayoutParams sizes = new GridLayout.LayoutParams(width, height);
 //                squared.setLayoutParams(sizes);
 
+                Log.i("testeee", "chegou aqui");
                 chessBoard.addView(squared, coordinates); // adicionando uma nova casa no tabuleiro
 
             }
