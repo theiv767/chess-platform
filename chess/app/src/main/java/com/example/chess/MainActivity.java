@@ -18,4 +18,8 @@ public class MainActivity extends AppCompatActivity {
         Intent it = new Intent(MainActivity.this, ChessBoardActivity.class);
         startActivity(it);
     }
+    public void settings(View v){
+        Intent it = new Intent(MainActivity.this, SettingsActivity2.class);
+        startActivity(it);
+    }
 }
