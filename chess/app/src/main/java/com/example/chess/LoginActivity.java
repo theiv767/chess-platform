@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClickLogin(View v){
-        Intent it = new Intent(LoginActivity.this, ChessBoardActivity.class);
+        Intent it = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(it);
     }
 }

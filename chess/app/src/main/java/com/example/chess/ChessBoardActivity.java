@@ -48,7 +48,6 @@ public class ChessBoardActivity extends AppCompatActivity {
                 }
                 squared.getLayoutParams().height = dpToPx(50);
                 squared.getLayoutParams().width = dpToPx(50);
-
                 chessBoard.addView(squared, coordinates); // adicionando uma nova casa no tabuleiro
 
 
