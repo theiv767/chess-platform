@@ -33,9 +33,11 @@ public class ChessBoardActivity extends AppCompatActivity {
         //chessBoard é o gridLayout no centro da tela que representa o tabuleiro
         GridLayout chessBoard = findViewById(R.id.chessBoard);
         Log.i("testeee", "criou a tela");
-        chessBoard.setRowCount(8); // setando o número de linhas para 8
-        chessBoard.setColumnCount(8); // setando o número de colunas para 8
-        for (int i = 0; i < chessBoard.getColumnCount(); i++) {
+        chessBoard.setRowCount(8); // número de linhas = 8
+        chessBoard.setColumnCount(8); //número de colunas = 8
+
+        for (int i = 0; i<chessBoard.getColumnCount(); i++) { // eixo do transitionName(identificador que vou usar)
+            int cont = 7;  // eixo y das cordenadas do TransitionName(identificador que vou usar);
             for (int j = 0; j < chessBoard.getRowCount(); j++) {
                 GridLayout.Spec row = GridLayout.spec(j);
                 GridLayout.Spec col = GridLayout.spec(i);
@@ -43,6 +45,7 @@ public class ChessBoardActivity extends AppCompatActivity {
 
                 ImageView squared = new ImageView(this);//imagem da casa do tabuleiro
                 squared.setLayoutParams(coordinates);
+
                 // controlando se a cor da casa será clara ou escura
                 if (i % 2 == 0) {
                     if (j % 2 == 0) {
@@ -59,7 +62,7 @@ public class ChessBoardActivity extends AppCompatActivity {
                 }
                 squared.getLayoutParams().height = dpToPx(48);
                 squared.getLayoutParams().width = dpToPx(48);
-                squared.setTransitionName(j+""+i);
+                squared.setTransitionName(i+""+cont); //nome para identificação das cordenadas do tabuleiro;
                 squared.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -70,9 +73,10 @@ public class ChessBoardActivity extends AppCompatActivity {
 
                 chessBoard.addView(squared, coordinates); // adicionando uma nova casa no tabuleiro
 
-
+                cont--;
             }
-        } // fim do processo de adicionar as casas do tabuleiro
+        }
+        // fim do processo de adicionar as casas do tabuleiro
 
 
     }
