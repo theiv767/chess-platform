@@ -6,7 +6,7 @@ public class ChessBoard {
     private Piece selectedPiece = null;
     private EnumColor turn = EnumColor.BRANCO;
 
-    ChessBoard(){
+    public ChessBoard(){
 
     }
 
@@ -43,6 +43,5 @@ public class ChessBoard {
         }
 
     }
-
 
 }
