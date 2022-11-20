@@ -1,13 +1,24 @@
 package com.example.chess.model.game;
 
+import android.widget.ImageView;
+
 //tabuleiro de xadrez
 public class ChessBoard {
-    private Piece[][] pieces = new Piece[8][8];
+    private Piece[][] pieces = new Piece[8][2];
+    private ImageView[][] squares = new ImageView[8][8];
     private Piece selectedPiece = null;
     private EnumColor turn = EnumColor.BRANCO;
 
     public ChessBoard(){
 
+    }
+
+    public void addSquared(int row, int col, ImageView squared){
+        this.squares[row][col] = squared;
+    }
+
+    public ImageView getSquared(int row, int col){
+        return this.squares[row][col];
     }
 
     public Piece getPiece(int row, int col){

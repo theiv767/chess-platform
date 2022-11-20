@@ -2,17 +2,17 @@ package com.example.chess;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.chess.model.*;
-import com.example.chess.model.game.ChessBoard;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 
+import com.example.chess.model.game.ChessBoard;
+
 public class ChessBoardActivity extends AppCompatActivity {
 
+    ChessBoard chessBoard = new ChessBoard();
 
     public void squaredClick(View v) {
         Log.i("squaredClick:", "clicou");
@@ -31,14 +31,14 @@ public class ChessBoardActivity extends AppCompatActivity {
 
 
         //chessBoard é o gridLayout no centro da tela que representa o tabuleiro
-        GridLayout chessBoard = findViewById(R.id.chessBoard);
+        GridLayout chessBoardGrid = findViewById(R.id.chessBoardGrid);
         Log.i("testeee", "criou a tela");
-        chessBoard.setRowCount(8); // número de linhas = 8
-        chessBoard.setColumnCount(8); //número de colunas = 8
+        chessBoardGrid.setRowCount(8); // número de linhas = 8
+        chessBoardGrid.setColumnCount(8); //número de colunas = 8
 
-        for (int i = 0; i<chessBoard.getColumnCount(); i++) { // eixo do transitionName(identificador que vou usar)
+        for (int i = 0; i<chessBoardGrid.getColumnCount(); i++) { // eixo do transitionName(identificador que vou usar)
             int cont = 7;  // eixo y das cordenadas do TransitionName(identificador que vou usar);
-            for (int j = 0; j < chessBoard.getRowCount(); j++) {
+            for (int j = 0; j < chessBoardGrid.getRowCount(); j++) {
                 GridLayout.Spec row = GridLayout.spec(j);
                 GridLayout.Spec col = GridLayout.spec(i);
                 GridLayout.LayoutParams coordinates = new GridLayout.LayoutParams(row, col);
@@ -67,16 +67,16 @@ public class ChessBoardActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Log.i("testeee", "squared   "+ v.getTransitionName());
-
                     }
                 });
 
-                chessBoard.addView(squared, coordinates); // adicionando uma nova casa no tabuleiro
-
+                chessBoardGrid.addView(squared, coordinates); // adicionando uma nova casa no tabuleiro
+                chessBoard.addSquared(i, cont, squared);
                 cont--;
             }
-        }
-        // fim do processo de adicionar as casas do tabuleiro
+        }// fim do processo de adicionar as casas do tabuleiro
+
+
 
 
     }
