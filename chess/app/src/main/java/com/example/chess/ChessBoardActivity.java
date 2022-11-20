@@ -12,12 +12,9 @@ import com.example.chess.model.game.ChessBoard;
 
 public class ChessBoardActivity extends AppCompatActivity {
 
+    // classe auxiliar para mexer no tabuleiro
     ChessBoard chessBoard = new ChessBoard();
 
-    public void squaredClick(View v) {
-        Log.i("squaredClick:", "clicou");
-
-    }
 
     private int dpToPx(int dp) {
         float density = this.getResources().getDisplayMetrics().density;
