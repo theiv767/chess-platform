@@ -4,10 +4,10 @@ import android.widget.ImageView;
 
 //tabuleiro de xadrez
 public class ChessBoard {
-    private Piece[][] pieces = new Piece[8][2];
+    private Piece[][] pieces = new Piece[8][8];
     private ImageView[][] squares = new ImageView[8][8];
     private Piece selectedPiece = null;
-    private EnumColor turn = EnumColor.BRANCO;
+    private EnumColor turn = EnumColor.WHITE;
 
     public ChessBoard(){
 
@@ -47,10 +47,10 @@ public class ChessBoard {
     }
 
     public void changeTurn(){
-        if(this.turn.equals(EnumColor.BRANCO)){
-            this.turn = EnumColor.PRETO;
+        if(this.turn.equals(EnumColor.WHITE)){
+            this.turn = EnumColor.DARK;
         }else{
-            this.turn = EnumColor.BRANCO;
+            this.turn = EnumColor.WHITE;
         }
 
     }

@@ -1,11 +1,13 @@
 package com.example.chess.model.game.pieces;
 
+import android.widget.ImageView;
+
 import com.example.chess.model.game.EnumColor;
 import com.example.chess.model.game.Piece;
 
 public class Rook extends Piece {
 
-    public Rook(EnumColor color, int row, int col, String image){
+    public Rook(EnumColor color, int row, int col, ImageView image){
         super(color, row, col, image);
     }
 

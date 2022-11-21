@@ -1,11 +1,13 @@
 package com.example.chess.model.game.pieces;
 
+import android.widget.ImageView;
+
 import com.example.chess.model.game.EnumColor;
 import com.example.chess.model.game.Piece;
 
 public class Knight extends Piece {
 
-    public Knight(EnumColor color, int row, int col, String image){
+    public Knight(EnumColor color, int row, int col, ImageView image){
         super(color, row, col, image);
     }
 

@@ -1,14 +1,16 @@
 package com.example.chess.model.game;
 
+import android.widget.ImageView;
+
 public abstract class Piece {
     private EnumColor color;  // 0 para brancas, 1 para pretas
     private int row, col;
-    private String image;
+    private ImageView image;
     private ChessBoard chessBoard;
     private boolean eliminated = false;
     private boolean selected = false;
 
-    public Piece(EnumColor color, int row, int col, String image){
+    public Piece(EnumColor color, int row, int col, ImageView image){
         this.color = color;
         this.row = row;
         this.col = col;
@@ -29,7 +31,7 @@ public abstract class Piece {
         return col;
     }
 
-    public String getImage() {
+    public ImageView getImage() {
         return image;
     }
 
@@ -57,7 +59,7 @@ public abstract class Piece {
         this.col = col;
     }
 
-    public void setImage(String image) {
+    public void setImage(ImageView image) {
         this.image = image;
     }
 
