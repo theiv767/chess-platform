@@ -57,11 +57,23 @@ public class ChessBoardActivity extends AppCompatActivity {
                 }
                 squared.getLayoutParams().height = dpToPx(48);
                 squared.getLayoutParams().width = dpToPx(48);
-                squared.setTransitionName(i+""+cont); //nome para identificação das cordenadas do tabuleiro;
+                squared.setTransitionName(cont+""+i); //nome para identificação das cordenadas do tabuleiro;
                 squared.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.i("testeee", "squared   "+ v.getTransitionName());
+                        int squaredRow = Integer.valueOf(v.getTransitionName().split("")[0]);
+                        int squaredCol = Integer.valueOf(v.getTransitionName().split("")[1]);
+                        if(chessBoard.getSelectedPiece() == null){
+                            Log.i("testeee", "null");
+                            chessBoard.setSelectedPiece(squaredRow, squaredCol);
+                        }else{
+                            Log.i("testeee", "não null");
+                            if(chessBoard.getPiece(squaredRow, squaredCol) != null){
+                                chessBoard.setSelectedPiece(squaredRow, squaredCol);
+                            }else{
+                                chessBoard.movPiece(chessBoard.getSelectedPiece(), squaredRow, squaredCol);
+                            }
+                        }
                     }
                 });
 
