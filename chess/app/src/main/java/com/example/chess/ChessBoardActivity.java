@@ -65,7 +65,9 @@ public class ChessBoardActivity extends AppCompatActivity {
                         int squaredCol = Integer.valueOf(v.getTransitionName().split("")[1]);
                         if(chessBoard.getSelectedPiece() == null){
                             Log.i("testeee", "null");
-                            chessBoard.setSelectedPiece(squaredRow, squaredCol);
+                            if (chessBoard.getPiece(squaredRow, squaredCol) != null) {
+                                chessBoard.setSelectedPiece(squaredRow, squaredCol);
+                            }
                         }else{
                             Log.i("testeee", "não null");
                             if(chessBoard.getPiece(squaredRow, squaredCol) != null){
@@ -193,7 +195,6 @@ public class ChessBoardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chess_board);
-
         initGame();
 
 
