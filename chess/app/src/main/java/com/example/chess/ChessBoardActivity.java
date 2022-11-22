@@ -104,10 +104,15 @@ public class ChessBoardActivity extends AppCompatActivity {
         chessBoard.addPiece(new Knight(EnumColor.DARK, 7, 6, knightDark2Img));
         chessBoard.addPiece(new Rook(EnumColor.DARK, 7, 0, rookDark1Img));
         chessBoard.addPiece(new Rook(EnumColor.DARK, 7, 7, rookDark2Img));
-        chessBoard.addPiece(new King(EnumColor.DARK, 7, 4, kingDarkImg));
+        chessBoard.addPiece(new King(EnumColor.DARK, 4, 7, kingDarkImg));
         chessBoard.addPiece(new Queen(EnumColor.DARK, 7, 3, queenDarkImg));
 
-//        chessBoard.getPiece(7, 4).getImage().setLayoutParams(chessBoard.getSquared(7, 4).getLayoutParams());
+        chessBoard.getPiece(4, 7).getImage().setLayoutParams(chessBoard.getSquared(4, 7).getLayoutParams());
+        chessBoard.getPiece(4, 7).getImage().setLeft(chessBoard.getSquared(4, 7).getLeft());
+        chessBoard.getPiece(4, 7).getImage().setTop(chessBoard.getSquared(4, 7).getTop());
+        chessBoard.getPiece(4, 7).getImage().setTop(chessBoard.getSquared(4, 7).getTop());
+//        chessBoard.getPiece(7, 4).getImage().getLayoutParams().width =
+        chessBoardGrid.addView(chessBoard.getPiece(4, 7).getImage());
         //UM CAMINHO PARA ADICIONAR AS PEÇAS
 
 
