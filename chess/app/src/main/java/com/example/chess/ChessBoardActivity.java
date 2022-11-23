@@ -25,13 +25,13 @@ public class ChessBoardActivity extends AppCompatActivity {
     // classe auxiliar para mexer no tabuleiro
     ChessBoard chessBoard = new ChessBoard();
 
-    private void initGame(){
+    private void initGame() {
         GridLayout chessBoardGrid = findViewById(R.id.chessBoardGrid);
         Log.i("testeee", "criou a tela");
         chessBoardGrid.setRowCount(8); // número de linhas = 8
         chessBoardGrid.setColumnCount(8); //número de colunas = 8
 
-        for (int i = 0; i<chessBoardGrid.getColumnCount(); i++) { // eixo do transitionName(identificador que vou usar)
+        for (int i = 0; i < chessBoardGrid.getColumnCount(); i++) { // eixo do transitionName(identificador que vou usar)
             int cont = 7;  // eixo y das cordenadas do TransitionName(identificador que vou usar);
             for (int j = 0; j < chessBoardGrid.getRowCount(); j++) {
                 GridLayout.Spec row = GridLayout.spec(j);
@@ -57,25 +57,20 @@ public class ChessBoardActivity extends AppCompatActivity {
                 }
                 squared.getLayoutParams().height = dpToPx(48);
                 squared.getLayoutParams().width = dpToPx(48);
-                squared.setTransitionName(cont+""+i); //nome para identificação das cordenadas do tabuleiro;
+                squared.setTransitionName(cont + "" + i); //nome para identificação das cordenadas do tabuleiro;
                 squared.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         int squaredRow = Integer.valueOf(v.getTransitionName().split("")[0]);
                         int squaredCol = Integer.valueOf(v.getTransitionName().split("")[1]);
-                        if(chessBoard.getSelectedPiece() == null){
-                            Log.i("testeee", "null");
+                        if (chessBoard.getSelectedPiece() == null) {
                             if (chessBoard.getPiece(squaredRow, squaredCol) != null) {
                                 chessBoard.setSelectedPiece(squaredRow, squaredCol);
                             }
-                        }else{
-                            Log.i("testeee", "não null");
-                            if(chessBoard.getPiece(squaredRow, squaredCol) != null){
-                                chessBoard.setSelectedPiece(squaredRow, squaredCol);
-                            }else{
-                                chessBoard.movPiece(chessBoard.getSelectedPiece(), squaredRow, squaredCol);
-                            }
+                        } else {
+                            chessBoard.movPiece(chessBoard.getSelectedPiece(), squaredRow, squaredCol);
                         }
+
                     }
                 });
 
@@ -86,7 +81,7 @@ public class ChessBoardActivity extends AppCompatActivity {
         }// fim do processo de adicionar as casas do tabuleiro
 
         //ADICIONANDO PEÇAS
-        for(int i=0; i<8; i++){ // adicionando peões
+        for (int i = 0; i < 8; i++) { // adicionando peões
             //
             ImageView pawnDarkImg = new ImageView(this);
             pawnDarkImg.setImageResource(R.drawable.pawndark);
@@ -106,18 +101,18 @@ public class ChessBoardActivity extends AppCompatActivity {
         ImageView bishopDark2Img = new ImageView(this);
         ImageView rookDark1Img = new ImageView(this);
         ImageView rookDark2Img = new ImageView(this);
-        ImageView knightDark1Img =  new ImageView(this);
-        ImageView knightDark2Img =  new ImageView(this);
-        ImageView queenDarkImg =  new ImageView(this);
-        ImageView kingDarkImg =  new ImageView(this);
+        ImageView knightDark1Img = new ImageView(this);
+        ImageView knightDark2Img = new ImageView(this);
+        ImageView queenDarkImg = new ImageView(this);
+        ImageView kingDarkImg = new ImageView(this);
         ImageView bishopWhite1Img = new ImageView(this);
         ImageView bishopWhite2Img = new ImageView(this);
         ImageView rookWhite1Img = new ImageView(this);
         ImageView rookWhite2Img = new ImageView(this);
-        ImageView knightWhite1Img =  new ImageView(this);
-        ImageView knightWhite2Img =  new ImageView(this);
-        ImageView queenWhiteImg =  new ImageView(this);
-        ImageView kingWhiteImg =  new ImageView(this);
+        ImageView knightWhite1Img = new ImageView(this);
+        ImageView knightWhite2Img = new ImageView(this);
+        ImageView queenWhiteImg = new ImageView(this);
+        ImageView kingWhiteImg = new ImageView(this);
         bishopDark1Img.setImageResource(R.drawable.bishopdark);
         bishopDark2Img.setImageResource(R.drawable.bishopdark);
         rookDark1Img.setImageResource(R.drawable.rookdark);
@@ -196,7 +191,6 @@ public class ChessBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chess_board);
         initGame();
-
 
 
     }

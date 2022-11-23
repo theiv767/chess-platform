@@ -17,7 +17,7 @@ public abstract class Piece {
         this.image = image;
     }
 
-    public abstract boolean checkMoviment(int row, int col);
+    public abstract boolean checkMoviment(int row, int col, ChessBoard chessBoard);
 
     public EnumColor getColor() {
         return color;
