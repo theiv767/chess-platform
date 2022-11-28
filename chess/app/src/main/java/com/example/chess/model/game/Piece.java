@@ -10,6 +10,7 @@ public abstract class Piece {
     private boolean eliminated = false;
     private boolean selected = false;
 
+
     public Piece(EnumColor color, int row, int col, ImageView image){
         this.color = color;
         this.row = row;
@@ -17,11 +18,13 @@ public abstract class Piece {
         this.image = image;
     }
 
-    public abstract boolean checkMoviment(int row, int col, ChessBoard chessBoard);
+    public abstract String checkMoviment(int row, int col, ChessBoard chessBoard);
 
     public EnumColor getColor() {
         return color;
     }
+
+
 
     public int getRow() {
         return row;
@@ -46,6 +49,7 @@ public abstract class Piece {
     public boolean isSelected() {
         return selected;
     }
+
 
     public void setColor(EnumColor color) {
         this.color = color;
