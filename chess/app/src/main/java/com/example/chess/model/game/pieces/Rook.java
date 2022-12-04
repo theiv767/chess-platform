@@ -7,16 +7,86 @@ import com.example.chess.model.game.EnumColor;
 import com.example.chess.model.game.Piece;
 
 public class Rook extends Piece {
-
     public Rook(EnumColor color, int row, int col, ImageView image){
         super(color, row, col, image);
+        this.setCanCastle(true);
     }
 
     @Override
     public String checkMoviment(int row, int col, ChessBoard chessBoard) {
-        /*MÉTODO DE REGRA DE NEGÓCIO,
-         verifica se a peça pode ou não fazer o movimento observado
-         */
-        return "true";
+
+        if((this.getCol() != col && this.getRow() != row) || (this.getRow() == row && this.getCol() == col)) {
+            return "false";
+        }
+
+        int currentRow = this.getRow();
+        int currentCol = this.getCol();
+
+        if(row > this.getRow()){
+            currentRow++;
+            while(currentRow < row){
+                if(this.getChessBoard().getPiece(currentRow, currentCol) != null){
+                    if (this.getColor() == this.getChessBoard().getPiece(currentRow, currentCol).getColor()){
+                        return "false";
+                    }else{
+                        this.setCanCastle(false);
+                        return "CAPTURE";
+                    }
+                }
+                currentRow++;
+            }
+        }else if(this.getRow() > row){
+            currentRow--;
+            while(currentRow > row){
+                if(this.getChessBoard().getPiece(currentRow, currentCol) != null){
+                    if (this.getColor() == this.getChessBoard().getPiece(currentRow, currentCol).getColor()){
+                        return "false";
+                    }else{
+                        this.setCanCastle(false);
+                        return "CAPTURE";
+                    }
+                }
+                currentRow--;
+            }
+        }else if(col > this.getCol()){
+            currentCol++;
+            while(currentCol < col){
+                if(this.getChessBoard().getPiece(currentRow, currentCol) != null){
+                    if (this.getColor() == this.getChessBoard().getPiece(currentRow, currentCol).getColor()){
+                        return "false";
+                    }else{
+                        this.setCanCastle(false);
+                        return "CAPTURE";
+                    }
+                }
+                currentCol++;
+            }
+
+        }else if(this.getCol() > col){
+            currentCol--;
+            while(col < currentCol){
+                if(this.getChessBoard().getPiece(currentRow, currentCol) != null){
+                    if (this.getColor() == this.getChessBoard().getPiece(currentRow, currentCol).getColor()){
+                        return "false";
+                    }else{
+                        this.setCanCastle(false);
+                        return "CAPTURE";
+                    }
+                }
+                currentCol--;
+            }
+        }
+        if(this.getChessBoard().getPiece(currentRow, currentCol) != null){
+            if (this.getColor() == this.getChessBoard().getPiece(currentRow, currentCol).getColor()){
+                return "false";
+            }else{
+                this.setCanCastle(false);
+                return "CAPTURE";
+            }
+        }
+
+        this.setCanCastle(false);
+        return "DEFALT";
     }
+
 }

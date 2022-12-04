@@ -9,6 +9,7 @@ public abstract class Piece {
     private ChessBoard chessBoard;
     private boolean eliminated = false;
     private boolean selected = false;
+    private boolean canCastle = false;
 
 
     public Piece(EnumColor color, int row, int col, ImageView image){
@@ -50,6 +51,10 @@ public abstract class Piece {
         return selected;
     }
 
+    public boolean isCanCastle(){
+        return this.canCastle;
+    }
+
 
     public void setColor(EnumColor color) {
         this.color = color;
@@ -77,5 +82,9 @@ public abstract class Piece {
 
     public void setSelected(boolean select) {
         this.selected = select;
+    }
+
+    public void setCanCastle(boolean canCastleValue){
+        this.canCastle = canCastleValue;
     }
 }
