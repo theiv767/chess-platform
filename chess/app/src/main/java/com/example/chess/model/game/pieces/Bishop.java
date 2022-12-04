@@ -13,10 +13,67 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public boolean checkMoviment(int row, int col, ChessBoard chessBoard) {
-        /*MÉTODO DE REGRA DE NEGÓCIO,
-         verifica se a peça pode ou não fazer o movimento observado
-         */
-        return true;
+    public String checkMoviment(int row, int col, ChessBoard chessBoard) {
+        int currentRow = this.getRow(); // para o loop
+        int currentCol = this.getCol(); // para o loop
+
+        if(this.getCol() == col || this.getRow() == row){
+            return "false";
+        }
+
+        int aux, aux2;
+        if(row> this.getRow()){
+            currentRow++;
+            aux = row-this.getRow();
+            if(col>this.getCol()) {
+                currentCol++;
+                aux2 = col - this.getCol();
+            }else {
+                currentCol--;
+                aux2 = this.getCol() - col;
+            }
+        }else{
+            aux = this.getRow()-row;
+            currentRow--;
+            if(col>this.getCol()) {
+                currentCol++;
+                aux2 = col - this.getCol();
+            }else {
+                currentCol--;
+                aux2 = this.getCol() - col;
+            }
+        }
+        if(aux != aux2)
+            return "false";
+        // ------
+
+
+        while(currentRow != row && currentCol != col){
+            if(this.getChessBoard().getPiece(currentRow, currentCol) != null){
+                if (this.getColor() == this.getChessBoard().getPiece(currentRow, currentCol).getColor()){
+                    return "false";
+                }else{
+                    return "CAPTURE";
+                }
+            }
+            if(row>this.getRow())
+                currentRow++;
+            else
+                currentRow--;
+
+            if (col > this.getCol())
+                currentCol++;
+            else
+                currentCol--;
+
+        }
+        if(this.getChessBoard().getPiece(currentRow, currentCol) != null){
+            if (this.getColor() == this.getChessBoard().getPiece(currentRow, currentCol).getColor()){
+                return "false";
+            }else{
+                return "CAPTURE";
+            }
+        }
+        return "DEFALT";
     }
 }

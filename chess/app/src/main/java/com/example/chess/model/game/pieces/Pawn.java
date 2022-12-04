@@ -1,5 +1,6 @@
 package com.example.chess.model.game.pieces;
 
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.chess.model.game.ChessBoard;
@@ -17,47 +18,53 @@ public class Pawn extends Piece {
 
         if (this.getColor() == EnumColor.WHITE) {
             if (this.getRow() == 1) { // primeiro lançe que pode ser de uma ou duas casas
-                if ((row == 2 || row == 3) && (col == this.getCol()))
-                    return "true DEFAULT";
-                else
-                    return "false null";
+                if ((row == 2 || row == 3) && (col == this.getCol())) {
+                    Log.i("testeee", "defalt");
+                    return "DEFAULT";
+                }else
+                    return "false";
 
             } else {
                 if ((row == this.getRow() + 1) && (col == this.getCol())) {
                     if (chessBoard.getPiece(row, col) == null) {
-                        return "true DEFAULT";
+                        Log.i("testeee", "defalt");
+                        return "DEFAULT";
                     }
                 }
                 if (row == this.getRow() + 1 && (col == this.getCol() + 1 || col == this.getCol() - 1)) {
                     if (chessBoard.getPiece(row, col) == null)
-                        return "false null";
+                        return "false";
                     if (chessBoard.getPiece(row, col).getColor() == EnumColor.DARK) {
-                        return "true CAPTURE";
+                        Log.i("testeee", "capture");
+                        return "CAPTURE";
                     }
                 }
-                return "false null";
+                return "false";
             }
         } else { //lances das pretas
             if (this.getRow() == 6) { // primeiro lançe que pode ser de uma ou duas casas
-                if ((row == 5 || row == 4) && (col == this.getCol()))
-                    return "true DEFAULT";
-                else
-                    return "false null";
+                if ((row == 5 || row == 4) && (col == this.getCol())) {
+                    Log.i("testeee", "defalt");
+                    return "DEFAULT";
+                }else
+                    return "false";
 
             } else {
                 if ((row == this.getRow() - 1) && (col == this.getCol())) {
                     if (chessBoard.getPiece(row, col) == null) {
-                        return "true DEFAULT";
+                        Log.i("testeee", "defalt");
+                        return "DEFAULT";
                     }
                 }
                 if (row == this.getRow() - 1 && (col == this.getCol() + 1 || col == this.getCol() - 1)) {
                     if (chessBoard.getPiece(row, col) == null)
-                        return "false null";
+                        return "false";
                     if (chessBoard.getPiece(row, col).getColor() == EnumColor.WHITE) {
-                        return "true CAPTURE";
+                        Log.i("testeee", "capture");
+                        return "CAPTURE";
                     }
                 }
-                return "false null";
+                return "false";
             }
         }
     }

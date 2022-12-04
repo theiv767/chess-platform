@@ -13,11 +13,10 @@ public class Knight extends Piece {
     }
 
     @Override
-    public boolean checkMoviment(int row, int col, ChessBoard chessBoard) {
+    public String checkMoviment(int row, int col, ChessBoard chessBoard) {
         /*MÉTODO DE REGRA DE NEGÓCIO,
          verifica se a peça pode ou não fazer o movimento observado
          */
-        return true;
+        return "true";
     }
-
 }

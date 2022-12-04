@@ -11,14 +11,15 @@ public class ChessBoard {
     private SelectedPiece selectedPiece = null;
     private EnumColor turn = EnumColor.WHITE;
 
-    public ChessBoard(){
+    public ChessBoard() {
 
     }
 
-    public void addSquared(int row, int col, ImageView squared){
+    public void addSquared(int row, int col, ImageView squared) {
         this.squares[row][col] = squared;
     }
-    public void addPiece(Piece piece){
+
+    public void addPiece(Piece piece) {
         this.pieces[piece.getRow()][piece.getCol()] = piece;
         piece.setChessBoard(this);
     }
@@ -32,27 +33,33 @@ public class ChessBoard {
 //        }
 //    }
 
-    public void movPiece(SelectedPiece piece, int row, int col){
-        Log.i("testeee", String.valueOf(selectedPiece.getPiece().checkMoviment(row, col, this)));
+    public void movPiece(SelectedPiece piece, int row, int col) {
+        String test = selectedPiece.getPiece().checkMoviment(row, col, this);
+        Log.i("testeee", test);
 
-        if(selectedPiece.getPiece().checkMoviment(row, col, this)){
-            if(this.pieces[row][col] != null){
-                this.pieces[row][col].getImage().setVisibility(View.INVISIBLE);
-                this.pieces[row][col] = null;
-            }
-            this.pieces[row][col] = selectedPiece.getPiece();
-            this.pieces[selectedPiece.getRow()][selectedPiece.getCol()] = null;
-            this.pieces[row][col].getImage().setLayoutParams(squares[row][col].getLayoutParams());
-            this.pieces[row][col].setRow(row);
-            this.pieces[row][col].setCol(col);
+        if (test.equals("false")) {
+            this.selectedPiece = null;
+            return;
+        }else if (test.equals("CAPTURE")) {
+            this.pieces[row][col].getImage().setVisibility(View.INVISIBLE);
+            this.pieces[row][col] = null;
+
         }
+
+        this.pieces[row][col] = selectedPiece.getPiece();
+        this.pieces[selectedPiece.getRow()][selectedPiece.getCol()] = null;
+        this.pieces[row][col].getImage().setLayoutParams(squares[row][col].getLayoutParams());
+        this.pieces[row][col].setRow(row);
+        this.pieces[row][col].setCol(col);
+
+        //
         this.selectedPiece = null;
     }
 
-    public void changeTurn(){
-        if(this.turn.equals(EnumColor.WHITE)){
+    public void changeTurn() {
+        if (this.turn.equals(EnumColor.WHITE)) {
             this.turn = EnumColor.DARK;
-        }else{
+        } else {
             this.turn = EnumColor.WHITE;
         }
 
