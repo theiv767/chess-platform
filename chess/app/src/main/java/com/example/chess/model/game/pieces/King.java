@@ -1,5 +1,6 @@
 package com.example.chess.model.game.pieces;
 
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.chess.model.game.ChessBoard;
@@ -15,14 +16,52 @@ public class King extends Piece {
 
     @Override
     public String checkMoviment(int row, int col, ChessBoard chessBoard) {
+        // AINDA NÃO FOI TESTADO;
 
-        //1- testar roques(castle), função isCanCastle() retorna se ainda pode ou não fazer roque (essa função tem em toda peça)
+        if(col == this.getCol()+2){
+            Log.i("testeee", "tentativa de roque");
+            if(this.canCastle && (this.getChessBoard().getPiece(0, 7) != null)){//check roque
+                if(this.getChessBoard().getPiece(0, 7).isCanCastle()){
+                    for(int i = this.getCol()+1; i<col; i++){
+                        if(this.getChessBoard().getPiece(0,i) != null){
+                            Log.i("testeee", "roque false: peça na frente");
+                            return "false";
+                        }
+                    }
+                    Log.i("testeee", "roque true");
+                    this.canCastle = false;
+                    return "CASTLE";
+                }
+            }
+            Log.i("testeee", "roque false");
+        }else if(col == this.getCol()-2){
+            Log.i("testeee", "tentativa de roque");
+            if(this.canCastle && (this.getChessBoard().getPiece(0, 0) != null)){ //check grande roque
+                if(this.getChessBoard().getPiece(0, 0).isCanCastle()){
+                    for(int i = this.getCol()-1; i>col; i--){
+                        if(this.getChessBoard().getPiece(0,i) != null){
+                            Log.i("testeee", "roque false: peça na frente");
+                            return "false";
+                        }
+                    }
+                    this.canCastle = false;
+                    Log.i("testeee", "roque true");
+                    return "BIGCASTLE";
+                }
+            }
+            Log.i("testeee", "roque false");
+        }else  if(row >= this.getRow()-1 && row <= this.getRow()+1 && col >= this.getCol()-1 && col <= this.getCol()+1){ //check movimentos normais
 
-        //2-ver os outros lançes possíveis
-
-        // finish
-        canCastle = false;
-        return "";
+           if(this.getChessBoard().getPiece(row, col) != null){
+               if(this.getChessBoard().getPiece(row, col).getColor() != this.getColor()){
+                   this.canCastle = false;
+                   return "CAPTURE";
+               }
+           }else{
+               this.canCastle = false;
+               return "DEFAULT";
+           }
+        }
+        return "false";
     }
-
 }
