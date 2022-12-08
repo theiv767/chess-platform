@@ -14,6 +14,9 @@ public class Rook extends Piece {
 
     @Override
     public String checkMoviment(int row, int col, ChessBoard chessBoard) {
+        if(this.getChessBoard().getTurn() != this.getChessBoard().getSelectedPiece().getPiece().getColor()){
+            return "false";
+        }
 
         if((this.getCol() != col && this.getRow() != row) || (this.getRow() == row && this.getCol() == col)) {
             return "false";

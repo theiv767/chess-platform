@@ -15,6 +15,9 @@ public class Pawn extends Piece {
 
     @Override
     public String checkMoviment(int row, int col, ChessBoard chessBoard) {
+        if(this.getChessBoard().getTurn() != this.getChessBoard().getSelectedPiece().getPiece().getColor()){
+            return "false";
+        }
 
         if (this.getColor() == EnumColor.WHITE) {
             if (this.getRow() == 1) { // primeiro lançe que pode ser de uma ou duas casas

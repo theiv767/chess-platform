@@ -16,14 +16,16 @@ public class King extends Piece {
 
     @Override
     public String checkMoviment(int row, int col, ChessBoard chessBoard) {
-        // AINDA NÃO FOI TESTADO;
+        if(this.getChessBoard().getTurn() != this.getChessBoard().getSelectedPiece().getPiece().getColor()){
+            return "false";
+        }
 
         if(col == this.getCol()+2){
             Log.i("testeee", "tentativa de roque");
-            if(this.canCastle && (this.getChessBoard().getPiece(0, 7) != null)){//check roque
-                if(this.getChessBoard().getPiece(0, 7).isCanCastle()){
+            if(this.canCastle && (this.getChessBoard().getPiece(row, 7) != null)){//check roque
+                if(this.getChessBoard().getPiece(row, 7).isCanCastle()){
                     for(int i = this.getCol()+1; i<col; i++){
-                        if(this.getChessBoard().getPiece(0,i) != null){
+                        if(this.getChessBoard().getPiece(row,i) != null){
                             Log.i("testeee", "roque false: peça na frente");
                             return "false";
                         }
@@ -36,10 +38,10 @@ public class King extends Piece {
             Log.i("testeee", "roque false");
         }else if(col == this.getCol()-2){
             Log.i("testeee", "tentativa de roque");
-            if(this.canCastle && (this.getChessBoard().getPiece(0, 0) != null)){ //check grande roque
-                if(this.getChessBoard().getPiece(0, 0).isCanCastle()){
+            if(this.canCastle && (this.getChessBoard().getPiece(row, 0) != null)){ //check grande roque
+                if(this.getChessBoard().getPiece(row, 0).isCanCastle()){
                     for(int i = this.getCol()-1; i>col; i--){
-                        if(this.getChessBoard().getPiece(0,i) != null){
+                        if(this.getChessBoard().getPiece(row,i) != null){
                             Log.i("testeee", "roque false: peça na frente");
                             return "false";
                         }

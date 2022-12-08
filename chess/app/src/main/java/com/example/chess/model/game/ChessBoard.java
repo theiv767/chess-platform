@@ -45,17 +45,19 @@ public class ChessBoard {
             this.pieces[row][col] = null;
 
         }else if(test.equals("CASTLE")){
-            this.pieces[0][5] = this.pieces[0][7];
-            this.pieces[0][7] = null;
-            this.pieces[0][5].getImage().setLayoutParams(squares[row][col-1].getLayoutParams());
-            this.pieces[0][5].setRow(0);
-            this.pieces[0][5].setCol(5);
+            this.pieces[row][5] = this.pieces[row][7];
+            this.pieces[row][7] = null;
+            this.pieces[row][5].getImage().setLayoutParams(squares[row][col-1].getLayoutParams());
+            this.pieces[row][5].setRow(row);
+            this.pieces[row][5].setCol(5);
+
         }else if(test.equals("BIGCASTLE")){
-            this.pieces[0][3] = this.pieces[0][0];
-            this.pieces[0][0] = null;
-            this.pieces[0][3].getImage().setLayoutParams(squares[row][col+1].getLayoutParams());
-            this.pieces[0][3].setRow(0);
-            this.pieces[0][3].setCol(3);
+            this.pieces[row][3] = this.pieces[row][0];
+            this.pieces[row][0] = null;
+            this.pieces[row][3].getImage().setLayoutParams(squares[row][col+1].getLayoutParams());
+            this.pieces[row][3].setRow(row);
+            this.pieces[row][3].setCol(3);
+
         }
 
         this.pieces[row][col] = selectedPiece.getPiece();
@@ -65,6 +67,11 @@ public class ChessBoard {
         this.pieces[row][col].setCol(col);
 
         //
+        if(turn == EnumColor.WHITE){
+            turn = EnumColor.DARK;
+        }else{
+            turn = EnumColor.WHITE;
+        }
         this.selectedPiece = null;
     }
 

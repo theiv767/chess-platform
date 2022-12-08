@@ -14,6 +14,9 @@ public class Bishop extends Piece {
 
     @Override
     public String checkMoviment(int row, int col, ChessBoard chessBoard) {
+        if(this.getChessBoard().getTurn() != this.getChessBoard().getSelectedPiece().getPiece().getColor()){
+            return "false";
+        }
         int currentRow = this.getRow(); // para o loop
         int currentCol = this.getCol(); // para o loop
 
