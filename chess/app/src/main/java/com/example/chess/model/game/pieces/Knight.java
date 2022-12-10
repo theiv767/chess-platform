@@ -18,6 +18,9 @@ public class Knight extends Piece {
         if(this.getChessBoard().getTurn() != this.getChessBoard().getSelectedPiece().getPiece().getColor()){
             return "false";
         }
+        if(this.getCol() == col || this.getRow() == row){
+            return "false";
+        }
 
         if ((row == (this.getRow() + 2)) || (row == (this.getRow() - 2))) {
             if ((col == (this.getCol() + 1)) || (col == (this.getCol() - 1))) {

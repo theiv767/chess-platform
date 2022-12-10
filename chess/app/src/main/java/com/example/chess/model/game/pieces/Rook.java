@@ -17,8 +17,10 @@ public class Rook extends Piece {
         if(this.getChessBoard().getTurn() != this.getChessBoard().getSelectedPiece().getPiece().getColor()){
             return "false";
         }
-
         if((this.getCol() != col && this.getRow() != row) || (this.getRow() == row && this.getCol() == col)) {
+            return "false";
+        }
+        if(this.getCol() == col && this.getRow() == row){
             return "false";
         }
 
